@@ -43,7 +43,7 @@ We have a Message Board and a Facebook group where our knowledgable user communi
 
 If chat is more your speed, you can join the MarlinFirmware Discord server:
 
-* Use the link https://discord.gg/n5NJ59y to join up as a General User.
+* Use the link https://discord.com/servers/marlin-firmware-461605380783472640 to join up as a General User.
 * Even though our Discord is pretty active, it may take a while for community members to respond &mdash; please be patient!
 * Use the `#general` channel for general questions or discussion about Marlin.
 * Other channels exist for certain topics or are limited to Patrons. Check the channel list.
@@ -121,7 +121,7 @@ Unsure where to begin contributing to Marlin? You can start by looking through t
 
 ### Pull Requests
 
-Pull Requests should always be targeted to working branches (e.g., `bugfix-2.1.x` and/or `bugfix-1.1.x`) and never to release branches (e.g., `2.0.x` and/or `1.1.x`). If this is your first Pull Request, please read our [Guide to Pull Requests](https://marlinfw.org/docs/development/getting_started_pull_requests.html) and Github's [Pull Request](https://help.github.com/articles/creating-a-pull-request/) documentation.
+Pull Requests should always be targeted to working branches (e.g., `bugfix-2.1.x` and/or `bugfix-1.1.x`) and never to release branches (e.g., `2.0.x` and/or `1.1.x`). If this is your first Pull Request, please read our [Guide to Pull Requests](https://marlinfw.org/docs/development/getting_started_pull_requests.html) and GitHub's [Pull Request](https://help.github.com/articles/creating-a-pull-request/) documentation.
 
 * Fill in [the required template](pull_request_template.md).
 * Don't include issue numbers in the PR title.

@@ -102,12 +102,8 @@ static void btn_ok_event_cb(lv_obj_t *btn, lv_event_t event) {
         card.openFileRead(cur_name);
         if (card.isFileOpen()) {
           feedrate_percentage = 100;
-          planner.flow_percentage[0] = 100;
-          planner.e_factor[0] = planner.flow_percentage[0] * 0.01f;
-          #if HAS_MULTI_EXTRUDER
-            planner.flow_percentage[1] = 100;
-            planner.e_factor[1] = planner.flow_percentage[1] * 0.01f;
-          #endif
+          TERN_(HAS_EXTRUDERS, planner.set_flow(0, 100));
+          E_TERN_(planner.set_flow(1, 100));
           card.startOrResumeFilePrinting();
           TERN_(POWER_LOSS_RECOVERY, recovery.prepare());
           once_flag = false;
@@ -116,7 +112,7 @@ static void btn_ok_event_cb(lv_obj_t *btn, lv_event_t event) {
     #endif
   }
   else if (DIALOG_IS(TYPE_STOP)) {
-    wait_for_heatup = false;
+    marlin.heatup_done();
     stop_print_time();
     lv_clear_dialog();
     lv_draw_ready_print();
@@ -127,12 +123,13 @@ static void btn_ok_event_cb(lv_obj_t *btn, lv_event_t event) {
     #endif
   }
   else if (DIALOG_IS(TYPE_FINISH_PRINT)) {
+    uiCfg.print_state = IDLE;
     clear_cur_ui();
     lv_draw_ready_print();
   }
   #if ENABLED(ADVANCED_PAUSE_FEATURE)
     else if (DIALOG_IS(PAUSE_MESSAGE_WAITING, PAUSE_MESSAGE_INSERT, PAUSE_MESSAGE_HEAT))
-      wait_for_user = false;
+      marlin.user_resume();
     else if (DIALOG_IS(PAUSE_MESSAGE_OPTION))
       pause_menu_response = PAUSE_RESPONSE_EXTRUDE_MORE;
     else if (DIALOG_IS(PAUSE_MESSAGE_RESUME)) {

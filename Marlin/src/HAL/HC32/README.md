@@ -11,7 +11,7 @@ The HC32F460 HAL is designed to be generic enough for any HC32F460-based board. 
    - Examine the board's main processor. (Refer the naming key in `hc32.ini`.)
    - Extend the `HC32F460C_common` base env for 256K, or `HC32F460E_common` for 512K.
 3. Determine your board's application start address (see [below](#finding-the-application-start-address))
-4. Set `board_build.ld_args.flash_start` to the app start address once you've found it. If your board doesn't use a bootloader, you may be able to use the "ICSP" header or DFU. This document will be updated once we have more information about flashing without a bootloader.
+4. Set `board_upload.offset_address` to the app start address once you've found it. If your board doesn't use a bootloader, you may be able to use the "ICSP" header or DFU. This document will be updated once we have more information about flashing without a bootloader.
 
 ### Finding the application start address
 
@@ -53,7 +53,7 @@ Just searching for `SCB->VTOR` should yield some results. From there, you just n
 > Some vendors publish incomplete source code. But they sometimes leave version control related files in the repo, which can contain previous version of files that were removed. Find these by including folders like `.git` or `.svn` in your search.
 
 > [!NOTE]
-> The example is based on the [Voxelab-64/Aquila_X2](https://github.com/Voxelab-64/Aquila_X2/blob/d1f23adf96920996b979bc31023d1dce236d05db/firmware/Sources/.svn/pristine/ec/ec82bcb480b511906bc3e6658450e3a803ab9813.svn-base#L96) which actually includes deleted files in its repo.
+> The example is based on the [Voxelab-64/Aquila_X2](https://github.com/Voxelab-64/Aquila_X2/blob/main/firmware/Sources/.svn/pristine/ec/ec82bcb480b511906bc3e6658450e3a803ab9813.svn-base#L96) which actually includes deleted files in its repo.
 
 2. Using a linker script
 
