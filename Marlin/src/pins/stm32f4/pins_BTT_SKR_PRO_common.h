@@ -62,7 +62,7 @@
 //
 #define X_DIAG_PIN                          PB10  // X-
 #define Y_DIAG_PIN                          PE12  // Y-
-#define Z_DIAG_PIN                          PG5   // Z-
+#define Z_DIAG_PIN                          PG8   // Z-
 #define E0_DIAG_PIN                         PE15  // E0
 #define E1_DIAG_PIN                         PE10  // E1
 #define E2_DIAG_PIN                         PG5   // E2
@@ -72,10 +72,10 @@
 //
 #define X_STOP_PIN                    X_DIAG_PIN  // X-
 #define Y_STOP_PIN                    Y_DIAG_PIN  // Y-
-#define Z_STOP_PIN                    Z_DIAG_PIN  // E2
-#define X_OTHR_PIN                          PE15  // E0
-#define Y_OTHR_PIN                          PE10  // E1
-#define Z_OTHR_PIN                          PG8   // Z-
+#define Z_STOP_PIN                    Z_DIAG_PIN  // Z-
+#define X_OTHR_PIN                   E0_DIAG_PIN  // E0
+#define Y_OTHR_PIN                   E1_DIAG_PIN  // E1
+#define Z_OTHR_PIN                   E2_DIAG_PIN  // E2
 
 //
 // Z Probe must be this pin
